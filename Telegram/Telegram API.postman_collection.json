@@ -1,0 +1,512 @@
+{
+	"info": {
+		"_postman_id": "269b2f42-7426-4f94-893d-34ec09ae7cd7",
+		"name": "Telegram API",
+		"description": "Tập hợp các thao tác với Telegram cho quá trình vừa học vừa làm.\n\nĐược viết bởi DuyQD.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32472222"
+	},
+	"item": [
+		{
+			"name": "Update",
+			"item": [
+				{
+					"name": "Teleg - getUpdate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/getUpdates",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"getUpdates"
+							]
+						},
+						"description": "**Lấy thông tin update của Telegram.**\n\nChú ý: với Telegram đã set Webhook sẽ không trả ra thông tin update vì thông tin này đã được đẩy về webhook."
+					},
+					"response": []
+				},
+				{
+					"name": "Teleg - getMe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/getMe",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"getMe"
+							]
+						},
+						"description": "**Lấy thông tin Telegram Bot.**"
+					},
+					"response": []
+				}
+			],
+			"description": "**Các thao tác lấy thông tin update.**"
+		},
+		{
+			"name": "Webhook",
+			"item": [
+				{
+					"name": "Teleg - getWebhookInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/getWebhookInfo",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"getWebhookInfo"
+							]
+						},
+						"description": "**Lấy thông tin Webhook đã set cho Telegram.**"
+					},
+					"response": []
+				},
+				{
+					"name": "Teleg - deleteWebhook",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/deleteWebhook",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"deleteWebhook"
+							],
+							"query": [
+								{
+									"key": "drop_pending_updates",
+									"value": "{{Boolean}}",
+									"description": "R: Optional | T: Boolean | D: Pass True to drop all pending updates",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Xóa thông tin set Webhook."
+					},
+					"response": []
+				},
+				{
+					"name": "Teleg - WebhookInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/WebhookInfo",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"WebhookInfo"
+							]
+						},
+						"description": "Chưa test."
+					},
+					"response": []
+				},
+				{
+					"name": "Teleg - setWebhook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/setWebhook?url={{Webhook URL}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"setWebhook"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "{{Webhook URL}}",
+									"description": "Your webhook url that Telegram send update info."
+								},
+								{
+									"key": "drop_pending_updates",
+									"value": "{{Boolean}}",
+									"description": "R: Optional | T: Boolean | D: Pass True to drop all pending updates",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Set webhook cho Telegram bot."
+					},
+					"response": []
+				}
+			],
+			"description": "**Các thao tác về Webhook.**"
+		},
+		{
+			"name": "Send Message",
+			"item": [
+				{
+					"name": "Teleg - Send Message Private",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/sendMessage?chat_id={{Chat ID}}&text={{Message}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "chat_id",
+									"value": "{{Chat ID}}",
+									"description": "Your chat id that get in getUpdate."
+								},
+								{
+									"key": "text",
+									"value": "{{Message}}",
+									"description": "Your message that send to Chat ID."
+								}
+							]
+						},
+						"description": "**Gửi tin nhắn Private từ Bot đến từng cá nhân.**\n\nChú ý: người dùng phải gửi tin nhắn trước mới có quyền mới gửi lại được."
+					},
+					"response": []
+				},
+				{
+					"name": "Teleg - Send Message Group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/sendMessage?chat_id={{Group Chat ID}}&text={{Message}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "chat_id",
+									"value": "{{Group Chat ID}}",
+									"description": "Note: GroupChat ID always begin with -100"
+								},
+								{
+									"key": "text",
+									"value": "{{Message}}",
+									"description": "Your message that send to Chat ID."
+								}
+							]
+						},
+						"description": "Gửi tin nhắn từ Telegram bot vào nhóm.\n\nChú ý: Bot phải được cấp quyền Admin của nhóm."
+					},
+					"response": []
+				}
+			],
+			"description": "**Các thao tác gửi tin nhắn Telegram Bot.**"
+		},
+		{
+			"name": "Keyboard",
+			"item": [
+				{
+					"name": "Teleg - Inline Keyboard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parse_mode\": \"Markdown\",\r\n    \"reply_markup\": {\r\n        \"inline_keyboard\": [\r\n            [\r\n                { \"text\": \"✅ Đồng ý\", \"callback_data\": \"yes\" },\r\n                { \"text\": \"❌ Từ chối\", \"callback_data\": \"no\" }\r\n            ],\r\n            [{ \"text\": \"🟢 Dễ\", \"callback_data\": \"level_easy\" }],\r\n            [{ \"text\": \"🟡 Trung bình\", \"callback_data\": \"level_medium\" }],\r\n            [{ \"text\": \"🔴 Khó\", \"callback_data\": \"level_hard\" }],\r\n            [{ \"text\": \"🌍 Mở Website\", \"url\": \"https://example.com\" }]\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/sendMessage?chat_id={{Chat ID}}&text={{Message}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "chat_id",
+									"value": "{{Chat ID}}",
+									"description": "Your chat id that get in getUpdate."
+								},
+								{
+									"key": "text",
+									"value": "{{Message}}",
+									"description": "Your message that send to Chat ID."
+								}
+							]
+						},
+						"description": "**Gửi Inline Keyboard trên Telegram.**  \n\n📌 **Đặc điểm:**\n\n- Hiển thị **bên trong khung hội thoại** (gắn vào tin nhắn).\n    \n- Không gửi trực tiếp văn bản về khung chat mà gửi **callback_data** khi người dùng nhấn nút.\n    \n- Bot cần xử lý callback thông qua `callback_query`.\n    \n\n📌 **Làm sao biết người dùng đã bấm vào nút nào?**\n\n- Bot sẽ nhận được một **callback_query** chứa `callback_data` mà bạn đã đặt khi tạo nút.\n    \n- Để xử lý, bạn dùng API **`getUpdates`** hoặc webhook để nhận sự kiện `callback_query`."
+					},
+					"response": []
+				},
+				{
+					"name": "Teleg - Reply Keyboard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parse_mode\": \"Markdown\",\r\n    \"reply_markup\": {\r\n        \"keyboard\": [\r\n            [\"✅ Đồng ý\",\"❌ Từ chối\"],\r\n            [\"🟢 Dễ\",\"🟡 Trung bình\",\"🔴 Khó\"],\r\n            [\"🌍 Mở Website\"]\r\n        ],\r\n        \"resize_keyboard\": true,\r\n        \"one_time_keyboard\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/sendMessage?chat_id={{Chat ID in getUpdate}}&text={{Your message}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "chat_id",
+									"value": "{{Chat ID in getUpdate}}"
+								},
+								{
+									"key": "text",
+									"value": "{{Your message}}"
+								}
+							]
+						},
+						"description": "**Gửi Reply Keyboard trên Telegram.**  \n\n📌 **Đặc điểm:**\n\n- Hiển thị **ngoài khung hội thoại chat** (dưới ô nhập văn bản).\n    \n- Gửi trực tiếp nội dung văn bản khi người dùng bấm nút.\n    \n- Không có `callback_data`, chỉ gửi text về như một tin nhắn bình thường.\n    \n- Hữu ích khi bạn muốn tạo một menu nhanh để nhập lệnh thay vì gõ.\n    \n\n📌 **Làm sao biết người dùng đã bấm vào nút nào?**\n\n- Vì nó gửi **nội dung văn bản** trực tiếp, bạn chỉ cần kiểm tra tin nhắn từ `message.text`."
+					},
+					"response": []
+				},
+				{
+					"name": "Teleg - Reply Keyboard Remove",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/sendMessage?chat_id={{Chat ID in getUpdate}}&text={{Your message}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "chat_id",
+									"value": "{{Chat ID in getUpdate}}"
+								},
+								{
+									"key": "text",
+									"value": "{{Your message}}"
+								}
+							]
+						},
+						"description": "Remove Reply Keyboard"
+					},
+					"response": []
+				},
+				{
+					"name": "Teleg - Reply Keyboard Force",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parse_mode\": \"Markdown\",\r\n    \"reply_markup\": {\r\n        \"force_reply\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/sendMessage?chat_id={{Chat ID in getUpdate}}&text={{Your message}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"sendMessage"
+							],
+							"query": [
+								{
+									"key": "chat_id",
+									"value": "{{Chat ID in getUpdate}}"
+								},
+								{
+									"key": "text",
+									"value": "{{Your message}}"
+								}
+							]
+						},
+						"description": "Force Reply Keyboard"
+					},
+					"response": []
+				}
+			],
+			"description": "**Các thao tác gửi tin nhắn với Keyboard đặc biệt của Telegram.**"
+		},
+		{
+			"name": "My Command",
+			"item": [
+				{
+					"name": "Teleg - getMyCommands",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/getMyCommands",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"getMyCommands"
+							]
+						},
+						"description": "List ra danh sách các command đã cấu hình."
+					},
+					"response": []
+				},
+				{
+					"name": "Teleg - setMyCommands",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"commands\":[\r\n        {\"command\":\"start\",\"description\":\"Bắt đầu.\"},\r\n        {\"command\":\"setting\",\"description\":\"Cấu hình.\"},\r\n        {\"command\":\"end\",\"description\":\"Kết thúc.\"}\r\n    ],\r\n    \"scope\":{\"type\": \"default\"},\r\n    //\"scope\":{\r\n    //    \"type\": \"chat\",\r\n    //    \"chat_id\": \"6891844488\"\r\n    //},\r\n    \"language_code\":\"en\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/setMyCommands",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"setMyCommands"
+							]
+						},
+						"description": "Set menu Command cho bobot."
+					},
+					"response": []
+				},
+				{
+					"name": "Teleg - deleteMyCommand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{API_Token}}/deleteMyCommands",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{API_Token}}",
+								"deleteMyCommands"
+							]
+						},
+						"description": "Xóa menu command cho bot."
+					},
+					"response": []
+				}
+			],
+			"description": "Các phương thức liên quan đến CommanCommand"
+		}
+	]
+}
