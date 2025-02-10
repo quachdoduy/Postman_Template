@@ -11,4 +11,7 @@
 
 Các mẫu sử dụng với Postman để sử dụng trong quá trình học tập và làm việc.
 
-> 💡 Nếu bạn có bất kỳ ý tưởng nào hoặc bạn chỉ muốn chia sẻ ý kiến ​​của mình, bạn có thể [Thảo luận](https://github.com/quachdoduy/Postman_Template/discussions/), hoặc bạn có thể mở một [Vấn đề](https://github.com/quachdoduy/Postman_Template/issues) nếu bạn tìm thấy lỗi
+> 💡 Nếu bạn có bất kỳ ý tưởng nào hoặc bạn chỉ muốn chia sẻ ý kiến ​​của mình, bạn có thể [Thảo luận](https://github.com/quachdoduy/Postman_Template/discussions/), hoặc bạn có thể mở một [Vấn đề](https://github.com/quachdoduy/Postman_Template/issues) nếu bạn tìm thấy lỗi.
+
+## Telegram
+- Tất cả các mẫu để kiểm thử với Bot Telegram và gửi Message tới Telegram.
